@@ -1,0 +1,9 @@
+@use './vars';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: vars.$color-primary-2;
+    padding: vars.$spacing-5 vars.$spacing-8;
+}

@@ -1,9 +1,10 @@
 import 'scss-reset/_reset.scss'
 import '@/styles/App.scss'
-import { lazy } from 'react'
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import LoadingPage from '@/pages/Loading'
 
 const HomePage = lazy(() => import('@/pages/Home'))
 const BlogPage = lazy(() => import('@/pages/Blog'))
@@ -12,17 +13,17 @@ const NotFoundPage = lazy(() => import('@/pages/NotFound'))
 
 export default function App() {
     return (
-        <>
-            <Header />
+        <Suspense fallback={<LoadingPage />}>
             <BrowserRouter>
+                <Header />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/blog/create" element={<CreateBlogPage />} />
                     <Route path="/blog/:blogId" element={<BlogPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
+                <Footer />
             </BrowserRouter>
-            <Footer />
-        </>
+        </Suspense>
     )
 }

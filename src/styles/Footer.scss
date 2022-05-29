@@ -1,0 +1,8 @@
+@use './vars';
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: vars.$spacing-4;
+    background: vars.$color-primary-2;
+}

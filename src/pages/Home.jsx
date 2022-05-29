@@ -40,7 +40,7 @@ export default function Home() {
             </div>
             <br />
 
-            <textarea className="textarea">Hello world</textarea>
+            <textarea className="textarea" value="Hello world"></textarea>
             <textarea className="textarea" placeholder="Hello"></textarea>
 
             <br />

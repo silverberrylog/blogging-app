@@ -63,14 +63,18 @@
 
 .link {
     font-style: italic;
-    text-decoration: underline vars.$color-accent-1 25%;
+    text-decoration: underline vars.$color-accent-1 35%;
     cursor: pointer;
 
     &:hover {
-        text-decoration: {
-            color: vars.$color-accent-2;
-            thickness: 30%;
-        }
+        text-decoration-color: vars.$color-accent-2;
+    }
+
+    &,
+    &:visited,
+    &:hover,
+    &:active {
+        color: inherit;
     }
 }
 
