@@ -1,0 +1,155 @@
+@use './vars';
+
+@mixin text($size) {
+    color: vars.$color-primary-5;
+    font: {
+        family: vars.$font-family;
+        size: $size;
+    }
+    line-height: 1.6;
+
+    &.bold {
+        font-weight: bold;
+    }
+}
+
+.text-gigantic {
+    @include text(32px);
+}
+
+.text-big {
+    @include text(24px);
+}
+
+.text {
+    @include text(16px);
+}
+
+.text-small {
+    @include text(12px);
+}
+
+@mixin button() {
+    @include text(16px);
+    padding: vars.$spacing-1 vars.$spacing-8;
+    border: 2px solid vars.$color-accent-1;
+    border-radius: vars.$border-radius;
+    cursor: pointer;
+}
+
+.btn-primary {
+    @include button();
+    background: vars.$color-accent-1;
+
+    &:hover {
+        border-color: vars.$color-accent-2;
+        background: vars.$color-accent-2;
+    }
+}
+
+.btn-secondary {
+    @include button();
+    background: transparent;
+
+    &:hover {
+        background: vars.$color-accent-1;
+    }
+}
+
+.btn-group {
+    display: flex;
+    gap: vars.$spacing-2;
+}
+
+.link {
+    font-style: italic;
+    text-decoration: underline vars.$color-accent-1 25%;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: {
+            color: vars.$color-accent-2;
+            thickness: 30%;
+        }
+    }
+}
+
+@mixin inputBase() {
+    @include text(16px);
+    display: block;
+    border: 2px solid vars.$color-primary-3;
+    border-radius: vars.$border-radius;
+    width: 100%;
+}
+
+@mixin inputPadding() {
+    padding: vars.$spacing-1 vars.$spacing-4;
+}
+
+@mixin textInput() {
+    @include inputBase();
+    @include inputPadding();
+
+    &::placeholder {
+        color: vars.$color-primary-3;
+    }
+
+    &:focus {
+        border-color: vars.$color-primary-4;
+    }
+}
+
+.input {
+    @include textInput();
+}
+
+.select {
+    @include inputBase();
+    cursor: pointer;
+
+    & > * {
+        @include inputPadding();
+
+        &:hover {
+            background: vars.$color-primary-2;
+        }
+    }
+
+    & :not(:first-child) {
+        display: none;
+    }
+
+    & :first-child {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:after {
+            content: url('/icons/icons8-chevron-16.png');
+            height: 16px;
+            width: 16px;
+            // turn from black (original color) to vars.$color-primary-3 (desired color)
+            filter: invert(79%) sepia(46%) saturate(451%) hue-rotate(330deg)
+                brightness(89%) contrast(87%);
+        }
+    }
+
+    &.open {
+        & :first-child {
+            border-bottom: 2px solid vars.$color-primary-3;
+
+            &:after {
+                transform: rotate(180deg);
+            }
+        }
+
+        & :not(:first-child) {
+            display: block;
+        }
+    }
+}
+
+.textarea {
+    @include textInput();
+    resize: vertical;
+}

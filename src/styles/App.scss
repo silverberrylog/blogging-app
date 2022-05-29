@@ -1,0 +1,6 @@
+// @import 'scss-reset/_reset.scss';
+@use './vars';
+
+html {
+    background: vars.$color-primary-1;
+}
