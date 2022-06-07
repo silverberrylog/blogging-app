@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
-        <div className="footer">
+        <footer className="footer">
             <p className="text">
                 Icons provided by{' '}
                 <a href="https://icons8.com" className="link">
                     Icons8
                 </a>
             </p>
-        </div>
+        </footer>
     )
 }

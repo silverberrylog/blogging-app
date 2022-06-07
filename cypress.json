@@ -1,0 +1,5 @@
+{
+    "env": {
+        "CYPRESS_VERIFY_TIMEOUT": 100000
+    }
+}

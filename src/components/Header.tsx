@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom'
 
 export default function Header() {
     return (
-        <div className="header">
+        <header className="header">
             <Link to="/" className="text link">
                 Homepage
             </Link>
             <Link to="/blog/create" className="text link">
                 Create blog post
             </Link>
-        </div>
+        </header>
     )
 }

@@ -16,12 +16,17 @@ export default function App() {
         <Suspense fallback={<LoadingPage />}>
             <BrowserRouter>
                 <Header />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/blog/create" element={<CreateBlogPage />} />
-                    <Route path="/blog/:blogId" element={<BlogPage />} />
-                    <Route path="*" element={<NotFoundPage />} />
-                </Routes>
+                <main className="page-content">
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route
+                            path="/blog/create"
+                            element={<CreateBlogPage />}
+                        />
+                        <Route path="/blog/:blogId" element={<BlogPage />} />
+                        <Route path="*" element={<NotFoundPage />} />
+                    </Routes>
+                </main>
                 <Footer />
             </BrowserRouter>
         </Suspense>

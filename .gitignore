@@ -6,9 +6,14 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+cypress/downloads
+cypress/screenshots
+cypress/videos
 
 node_modules
 dist
+temp
+tmp
 dist-ssr
 *.local
 

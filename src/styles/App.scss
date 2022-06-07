@@ -4,3 +4,7 @@
 html {
     background: vars.$color-primary-1;
 }
+
+.page-content {
+    padding: vars.$spacing-8 vars.$spacing-page;
+}
