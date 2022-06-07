@@ -1,18 +1,34 @@
 import '@/styles/components.scss'
 import '@/styles/CreateBlog.scss'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useInputState } from '@/utils/hooks'
 import { markdownToJson } from '@/utils/markdown'
+import { postsCol } from '@/utils/db'
+import { addDoc } from 'firebase/firestore/lite'
+import { Post } from '@/types/models'
 
 export default function CreateBlog() {
     const [title, setTitle] = useInputState('')
     const [content, setContent] = useInputState('')
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
         const parsedMd = markdownToJson(content)
-        console.log(parsedMd)
+        const post: Post = {
+            name: title,
+            content: JSON.stringify(parsedMd),
+            createdAt: Date.now(),
+        }
+
+        await addDoc(postsCol, post)
+        navigate('/', {
+            state: {
+                popupMessage: 'Blog post crated successfully',
+            },
+        })
     }
 
     return (

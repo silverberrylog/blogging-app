@@ -1,4 +1,5 @@
 {
+    "baseUrl": "http://localhost:3000/",
     "env": {
         "CYPRESS_VERIFY_TIMEOUT": 100000
     }

@@ -5,7 +5,7 @@ import {
     CollectionReference,
     collection,
     DocumentData,
-} from 'firebase/firestore'
+} from 'firebase/firestore/lite'
 import { Post, Comment } from '@/types/models'
 
 const firebaseConfig: FirebaseOptions = {

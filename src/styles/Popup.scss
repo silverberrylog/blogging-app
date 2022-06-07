@@ -1,0 +1,21 @@
+@use './vars';
+
+.popup {
+    position: fixed;
+    bottom: vars.$spacing-5;
+    left: vars.$spacing-5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: vars.$spacing-6;
+    padding: vars.$spacing-2 vars.$spacing-6;
+    // border: 2px solid vars.$color-primary-3;
+    background: vars.$color-primary-2;
+
+    & img {
+        height: 16px;
+        width: 16px;
+        cursor: pointer;
+    }
+}

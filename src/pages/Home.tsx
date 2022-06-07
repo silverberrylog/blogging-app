@@ -1,10 +1,24 @@
+import Popup from '@/components/Popup'
 import '@/styles/components.scss'
 import '@/styles/Home.scss'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 export default function Home() {
+    const location = useLocation()
+    const navigate = useNavigate()
+
     return (
         <div>
-            <h1 className="text-gigantic bold">Hello</h1>
+            {location?.state?.popupMessage && (
+                <Popup
+                    message={location.state.popupMessage}
+                    onClose={() =>
+                        navigate('/', { state: null, replace: true })
+                    }
+                />
+            )}
+
+            {/* <h1 className="text-gigantic bold">Hello</h1>
             <h1 className="text-big bold">Hello</h1>
             <h2 className="text bold">Hello</h2>
             <h4 className="text-small bold">Hello</h4>
@@ -44,7 +58,7 @@ export default function Home() {
             <textarea className="textarea" placeholder="Hello"></textarea>
 
             <br />
-            <a className="text link">Hello</a>
+            <a className="text link">Hello</a> */}
         </div>
     )
 }
