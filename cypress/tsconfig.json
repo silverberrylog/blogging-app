@@ -2,11 +2,13 @@
     "compilerOptions": {
         "target": "es5",
         "lib": ["es5", "dom"],
-        "types": ["cypress"],
-        "baseUrl": "../",
+        "types": ["cypress", "node"],
+        "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"]
-        }
+            "@/*": ["../src/*"],
+            "#/*": ["./*"]
+        },
+        "moduleResolution": "node"
     },
     "include": ["**/*.ts"]
 }

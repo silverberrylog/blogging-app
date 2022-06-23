@@ -2,10 +2,7 @@ import '@/styles/components.scss'
 import '@/styles/CreateBlog.scss'
 import { Link, useNavigate } from 'react-router-dom'
 import { useInputState } from '@/utils/hooks'
-import { markdownToJson } from '@/utils/markdown'
-import { postsCol } from '@/utils/db'
-import { addDoc } from 'firebase/firestore/lite'
-import { Post } from '@/types/models'
+import { createBlog } from '@/utils/blogs'
 
 export default function CreateBlog() {
     const [title, setTitle] = useInputState('')
@@ -16,17 +13,10 @@ export default function CreateBlog() {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
 
-        const parsedMd = markdownToJson(content)
-        const post: Post = {
-            name: title,
-            content: JSON.stringify(parsedMd),
-            createdAt: Date.now(),
-        }
-
-        await addDoc(postsCol, post)
+        await createBlog(content, title)
         navigate('/', {
             state: {
-                popupMessage: 'Blog post crated successfully',
+                popupMessage: 'Blog post created successfully',
             },
         })
     }

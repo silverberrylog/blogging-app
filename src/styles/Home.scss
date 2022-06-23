@@ -1,1 +1,25 @@
 @use './vars';
+
+.title-container {
+    margin-bottom: vars.$spacing-5;
+}
+
+.blog-posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: vars.$spacing-3;
+}
+
+.blog-post {
+    padding: vars.$spacing-3 vars.$spacing-6;
+    border: 2px solid vars.$color-primary-3;
+    border-radius: vars.$border-radius;
+
+    & > :not(:last-child) {
+        margin-bottom: vars.$spacing-4;
+    }
+}
+
+.pagination {
+    margin-top: vars.$spacing-5;
+}

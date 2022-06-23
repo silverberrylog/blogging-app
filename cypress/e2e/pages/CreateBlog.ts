@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('Testing the /blog/create page', () => {
     describe('Saving a blog post to database', () => {
         it('Should parse and save a blog post', () => {

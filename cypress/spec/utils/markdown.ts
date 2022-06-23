@@ -1,4 +1,3 @@
-/// <reference types="cypress" />
 import { markdownToJson } from '@/utils/markdown'
 
 describe('Testing markdownToJson function', () => {

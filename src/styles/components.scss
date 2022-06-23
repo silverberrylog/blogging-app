@@ -35,7 +35,14 @@
     border: 2px solid vars.$color-accent-1;
     border-radius: vars.$border-radius;
     text-decoration: none;
-    cursor: pointer;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+    }
 }
 
 .btn-primary {
@@ -88,7 +95,6 @@
     display: block;
     border: 2px solid vars.$color-primary-3;
     border-radius: vars.$border-radius;
-    width: 100%;
 }
 
 @mixin inputPadding() {
@@ -98,6 +104,7 @@
 @mixin textInput() {
     @include inputBase();
     @include inputPadding();
+    width: 100%;
 
     &::placeholder {
         color: vars.$color-primary-3;
@@ -114,6 +121,8 @@
 
 .select {
     @include inputBase();
+    width: fit-content;
+    height: fit-content;
     cursor: pointer;
 
     & > * {
@@ -137,6 +146,7 @@
             content: url('/icons/icons8-chevron-16.png');
             height: 16px;
             width: 16px;
+            margin-left: vars.$spacing-2;
             // turn from black (original color) to vars.$color-primary-3 (desired color)
             filter: invert(79%) sepia(46%) saturate(451%) hue-rotate(330deg)
                 brightness(89%) contrast(87%);
